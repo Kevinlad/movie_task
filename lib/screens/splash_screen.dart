@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
           children: [
            
             Image.asset(
-              'assets/image/movie_logo.png', // Replace with your app's logo
+              'assets/image/movie_logo.png', 
               width: 150,
               height: 150,
             ),
@@ -38,7 +38,7 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40),
-            // Loading indicator to indicate splash activity
+           
             const CircularProgressIndicator(
               color: Colors.white,
             ),

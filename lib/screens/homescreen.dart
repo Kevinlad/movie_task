@@ -16,17 +16,17 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFF24262B),
+        backgroundColor: const Color(0xFF24262B),
         title: GestureDetector(
           onTap: onSearchTap,
           child: Container(
             height: 50,
-            padding: EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.1),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: Row(
+            child: const Row(
               children: [
                 Icon(Icons.search, color: Colors.white),
                 SizedBox(width: 10),
@@ -41,15 +41,15 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Obx(() {
         if (movieController.isLoading.value) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (movieController.moviesList.isEmpty) {
-          return Center(child: Text("No movies available"));
+          return const Center(child: Text("No movies available"));
         } else {
           return GridView.builder(
-            padding: EdgeInsets.all(12),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            padding: const EdgeInsets.all(12),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 0.6, // Larger aspect ratio for bigger posters
+              childAspectRatio: 0.6, 
               crossAxisSpacing: 12,
               mainAxisSpacing: 12,
             ),
@@ -58,15 +58,15 @@ class HomeScreen extends StatelessWidget {
               var movie = movieController.moviesList[index].show!;
               return GestureDetector(
                 onTap: () {
-                  // Navigate to details screen
+                
                   Get.to(() => DetailsScreen(movie: movie));
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFF24262B),
+                    color: const Color(0xFF24262B),
                     borderRadius: BorderRadius.circular(12),
                     boxShadow: [
-                      BoxShadow(
+                      const BoxShadow(
                         color: Colors.black26,
                         blurRadius: 6,
                         offset: Offset(0, 4),
@@ -78,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ClipRRect(
-                          borderRadius: BorderRadius.vertical(
+                          borderRadius: const BorderRadius.vertical(
                             top: Radius.circular(12),
                           ),
                           child: FlutterImage.Image.network(
@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                             width: double.infinity,
                             height: 180,
                             errorBuilder: (context, error, stackTrace) {
-                              return Center(
+                              return const Center(
                                 child: Text(
                                   "Image not loaded",
                                   style: TextStyle(
@@ -106,7 +106,7 @@ class HomeScreen extends StatelessWidget {
                           movie.name ?? "",
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -120,13 +120,13 @@ class HomeScreen extends StatelessWidget {
                               "",
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white54,
                             fontSize: 12,
                           ),
                         ),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                     ],
                   ),
                 ),

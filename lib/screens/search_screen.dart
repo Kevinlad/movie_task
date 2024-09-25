@@ -16,8 +16,8 @@ class SearchScreen extends StatelessWidget {
         backgroundColor: Colors.black,
         title: TextField(
           controller: searchTextController,
-          style: TextStyle(color: Colors.white),
-          decoration: InputDecoration(
+          style: const TextStyle(color: Colors.white),
+          decoration: const InputDecoration(
             hintText: "Search Movies...",
             hintStyle: TextStyle(color: Colors.white54),
             border: InputBorder.none,
@@ -29,13 +29,13 @@ class SearchScreen extends StatelessWidget {
       ),
       body: Obx(() {
         if (searchBarController.isLoading.value) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         } else if (searchBarController.movieList.isEmpty) {
-          return Center(child: Text("No movies found"));
+          return const Center(child: Text("No movies found"));
         } else {
           return GridView.builder(
-            padding: EdgeInsets.all(8),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            padding: const EdgeInsets.all(8),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: 0.7,
               crossAxisSpacing: 10,
@@ -65,7 +65,7 @@ class SearchScreen extends StatelessWidget {
                             width: double.infinity,
                             height: 150,
                             errorBuilder: (context, error, stackTrace) {
-                              return Center(
+                              return const Center(
                                 child: Text(
                                   "Image not loaded",
                                   style: TextStyle(color: Colors.red),
@@ -80,7 +80,7 @@ class SearchScreen extends StatelessWidget {
                         child: Text(
                           movie.name ?? "",
                           maxLines: 2,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
@@ -93,7 +93,7 @@ class SearchScreen extends StatelessWidget {
                               "",
                           maxLines: 3,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white54,
                           ),
                         ),

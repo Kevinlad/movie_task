@@ -7,7 +7,6 @@ class SearchBarController extends GetxController {
   var movieList = <Welcome>[].obs;
   var query = "".obs;
 
-  // Method to search movies using the API
   void searchMovies(String query) async {
     if (query.isNotEmpty) {
       isLoading(true);
